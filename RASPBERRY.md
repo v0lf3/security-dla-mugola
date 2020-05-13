@@ -7,15 +7,15 @@ Luckily, Raspberry Pi has a "feature" that most Linux machines don't: very easil
 To reset your password:
 
 - Power down and pull the SD card out from your Pi and put it into your computer.
-- Open the file *'cmdline.txt'* and add *'init=/bin/sh'* to the end. This will cause the machine to boot to single user mode.
+- Open the file **'cmdline.txt'** and add **'init=/bin/sh'** to the end. This will cause the machine to boot to single user mode.
 - Put the SD card back in the Pi and boot.
-- When the prompt comes up, type *'su'* to log in as root (no password needed).
-- Type *"passwd pi"* and then follow the prompts to enter a new password.
-- Shut the machine down, then pull the card again and put the cmdline.txt file back the way it was by removing the *'init=/bin/sh'* bit.
+- When the prompt comes up, type **'su'** to log in as root (no password needed).
+- Type **"passwd pi"** and then follow the prompts to enter a new password.
+- Shut the machine down, then pull the card again and put the **cmdline.txt** file back the way it was by removing the **'init=/bin/sh'** bit.
 
 The cmdline.txt should look something like this:
 
-*dwc_otg.lpm_enable=0 console=ttyAMA0,115200 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 elevator=deadline rootwait init=/bin/sh*
+**dwc_otg.lpm_enable=0 console=ttyAMA0,115200 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 elevator=deadline rootwait init=/bin/sh**
 
 It's worth noting that with this process being as easy as it is, to consider than a malicious person with physical access to your Raspberry Pi could do this as easily as you can.
 
@@ -31,4 +31,4 @@ If the root account is prompting for a password (not common) you can, back on yo
 
 Note: Sometimes the password won't be able to be changed because the Pi will boot in a read-only mode. You'll get an error that you can't change the password. To fix this, remount the drive in read-write mode:
 
-*mount -o remount,rw /*
+**mount -o remount,rw /**
